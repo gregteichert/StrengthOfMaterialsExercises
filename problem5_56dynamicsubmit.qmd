@@ -20,12 +20,12 @@ def generate_random_letters(length):
     # Generate a random string of letters of specified length
     return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))  
 
-problem_ID="139"
-L1=reactive.Value("__")
-L2=reactive.Value("__")
-FA=reactive.Value("__")
-FB=reactive.Value("__")
-E = 30*10**6
+problem_ID="227"
+W=reactive.Value("__")
+L=reactive.Value("__")
+A=reactive.Value("__")
+T1=reactive.Value("__")
+T2 =reactive.Value("__")
   
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
@@ -48,16 +48,17 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"Two cylinders are stacked on top of one another and two forces are applied at the top surface and at the joint between the cylinders as shown. If L<sub>1</sub> = {L1()} in., L<sub>2</sub> = {L2()} in., F<sub>A</sub> = {FA()} lb, and F<sub>B</sub> = {FB()} lb, find the total deflection in the stack of cylinders. Assume E = 30 x 10<sup>6</sup> psi for both cylinders. ")]
+        return[ui.markdown(f"A crate weighting W = {W()} kips is attached to a brass cable of length L = {L()} in. and cross-sectional area A = {A()} in.<sup>2</sup>. The temperature is increased from T<sub>1</sub> = {T1()}°F to T<sub>2</sub> = {T2()}°F. Determine the total change in lengh of the cable. Assume α = 11 x 10<sup>-6</sup> /°F and E = 15,000 ksi.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        FA.set(random.randrange(300, 700, 10))
-        FB.set(random.randrange(100, 300, 10))
-        L1.set(random.randrange(2, 7, 1))
-        L2.set(L1() * 1.3)
+        W.set(random.randrange(50, 200, 1))
+        L.set(random.randrange(15, 30, 1))
+        A.set(random.randrange(10, 50, 1))
+        T1.set(random.randrange(20,50,1))
+        T2.set(random.randrange(150,250,1))
         
 
     @reactive.Effect
@@ -65,7 +66,7 @@ def server(input, output, session):
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
     
-        instr= (FA()*L1())/((math.pi*(5/2)**2)*E) + (FB()*L2())/((math.pi*(3/2)**2)*E)
+        instr= W()*L()/(A()*15000*1000)+11*10**(-6)*(T2()-T1())*L()
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"

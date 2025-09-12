@@ -45,7 +45,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A small brass sample is subjected to loads on each of its three surfaces, where F<sub>x</sub> = {Fx()} kips, F<sub>y</sub> = {Fy()} kips, and F<sub>z</sub> = {Fz()} kips. Assuming E = 15 x 10<sup>6</sup> psi and ν = 0.34, determine the total change in length in the z-direction. Note a minus sign if the length decreases.")]
+        return[ui.markdown(f"A small brass sample is subjected to loads on each of its three surfaces, where F<sub>x</sub> = {Fx()} kips, F<sub>y</sub> = {Fy()} kips, and F<sub>z</sub> = {Fz()} kips. Assuming E = 15 x 10<sup>6</sup> psi and ν = 0.34, determine the total change in length in the z-direction. Let L<sub>1</sub> = 1 in, L<sub>2</sub> = 2 in, and L<sub>3</sub> = 3 in. Note a minus sign if the length decreases.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

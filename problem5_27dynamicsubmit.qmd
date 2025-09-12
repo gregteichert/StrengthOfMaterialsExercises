@@ -1,7 +1,6 @@
 # Problem 5.27 - Deformation in Systems of Bars {.unnumbered}
 
-![Figure 1: A bar is attached to two wires, one steel and one aluminum.](images/191.png){fig-alt="Picture with a bar attached to two wires. The distance between the wires in L in. The length of the aluminum wire is L[1] and the length of the steel wire is L[2]. The load F is applied at some distance along the bar, x, measured from the aluminum wire. "}
-\[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
+![Figure 1: A bar is attached to two wires, one steel and one aluminum.](images/191.png){fig-alt="Picture with a bar attached to two wires. The distance between the wires in L in. The length of the aluminum wire is L[1] and the length of the steel wire is L[2]. The load F is applied at some distance along the bar, x, measured from the aluminum wire. "} \[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
 #| standalone: true

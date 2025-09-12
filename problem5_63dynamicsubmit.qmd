@@ -46,7 +46,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A square steel 1 inch bar is placed between two fixed walls. The bar is heated such that section 1 of length L<sub>1</sub> = {L1()} in. is heated by ΔT<sub>1</sub> = {delT2()}°F and section 2 of length L<sub>2</sub> = {L2()} in. is heated by ΔT<sub>2</sub> = {delT2()}°F. Determine the stress created in the bar. Assume E = 29,000 ksi and α = 6.5 x 10<sup>-6</sup> /°F.")]
+        return[ui.markdown(f"A square steel 1 inch bar is placed between two fixed walls. The bar is heated such that section 1 of length L<sub>1</sub> = {L1()} in. is heated by ΔT<sub>1</sub> = {delT1()}°F and section 2 of length L<sub>2</sub> = {L2()} in. is heated by ΔT<sub>2</sub> = {delT2()}°F. Determine the stress created in the bar. Assume E = 29,000 ksi and α = 6.5 x 10<sup>-6</sup> /°F.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

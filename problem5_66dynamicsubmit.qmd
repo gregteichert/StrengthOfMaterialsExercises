@@ -46,7 +46,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"Two posts support a slender bar as shown, where L<sub>1</sub> = {L1()} m and L<sub>2</sub> = {L2()} m, causing the bar to be at a slight angle. Determine the increase in temperature that will cause the bar to become horizontal. Assume α<sub>PVC</sub> = {aPVC()} x 10<sup>-6</sup> /°C and α<sub>poly</sub> = {aPoly()} x 10<sup>6</sup> /°C. Ignore the weight of the bar.")]
+        return[ui.markdown(f"Two posts support a slender bar as shown, where L<sub>1</sub> = {L1()} m and L<sub>2</sub> = {L2()} m, causing the bar to be at a slight angle. Determine the increase in temperature that will cause the bar to become horizontal. Assume α<sub>PVC</sub> = {aPVC()} x 10<sup>-6</sup> /°C and α<sub>poly</sub> = {aPoly()} x 10<sup>-6</sup> /°C. Ignore the weight of the bar.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -66,7 +66,7 @@ def server(input, output, session):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
-            check = "*Not Correct.*"
+            check = "*Not Correct*"
             correct_indicator = "JG"
 
         # Generate random parts for the encoded attempt.
@@ -82,7 +82,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

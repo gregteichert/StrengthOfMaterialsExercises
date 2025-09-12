@@ -51,7 +51,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"Two cylindrical rods are heated until they expand, just closing the gap of d = {d()} in. The coefficient of thermal expansion, α, for material A and B is 6 x 10<sup>-6</sup>/°F and 10 x 10<sup>-6</sup>/°F, respectively. The radius of A r<sub>A</sub> = {rA()} in and the length is L<sub>1</sub> = {L1()} in. The radius of B is r<sub>B</sub> = {rB()} in and the length is L<sub>2</sub> = {L2()} in. What is the change in temperature.  ")]
+        return[ui.markdown(f"Two cylindrical rods are heated until they expand, just closing the gap of d = {d()} in. The coefficient of thermal expansion, α, for material A and B is 6 x 10<sup>-6</sup>/°F and 10 x 10<sup>-6</sup>/°F, respectively. The radius of r<sub>A</sub> = {rA()} in and the length is L<sub>A</sub> = {L1()} in. The radius of B is r<sub>B</sub> = {rB()} in and the length is L<sub>B</sub> = {L2()} in. What is the change in temperature.  ")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

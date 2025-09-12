@@ -15,17 +15,18 @@ import math
 import string
 from datetime import datetime
 from pathlib import Path
+from math import atan, degrees
 
 def generate_random_letters(length):
     # Generate a random string of letters of specified length
     return ''.join(random.choice(string.ascii_lowercase) for _ in range(length))
 
-problem_ID="242"
-W=reactive.Value("__")
-d=reactive.Value("__")
+problem_ID="243"
 L=reactive.Value("__")
-delta=reactive.Value("__")
-T1=reactive.Value("__")
+h=reactive.Value("__")
+delT=reactive.Value("__")
+apoly=reactive.Value("__")
+apvc=reactive.Value("__")
 
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
@@ -35,7 +36,7 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of \u00b0C", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of °", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -47,29 +48,31 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A crate weighing W = {W()} kN is hung from a long steel cable of diameter d = {d()} mm and length L = {L()} m. The crate is initially ẟ = {delta()} mm above the ground when the temperature is T<sub>1</sub> = {T1()}°C. At what temperature will the crate touch the ground. Assume E<sub>s</sub> = 190 GPa and α<sub>s</sub> = 6.5 x 10<sup>-6</sup> /°C.")]
+        return[ui.markdown(f"A rigid bar is supported by two posts made from PVC and polycarbonate, where length L = {L()} mm and height h = {h()} mm. The temperature of each post is raised by ΔT = {delT()}°C. Determine the angle of the bar with the ground. Assume α<sub>poly</sub> = {apoly()} x 10<sup>-6</sup> /°C and α<sub>PVC</sub> = {apvc()} x 10<sup>-6</sup> /°C.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        W.set(random.randrange(50,100,1))
-        d.set(random.randrange(50,100,1))
-        L.set(random.randrange(50,100,1)/10)
-        delta.set(random.randrange(5,10,1))
-        T1.set(random.randrange(15,30,1))
+        L.set(random.randrange(50,100,1))
+        h.set(L()+random.randrange(15,40,1))
+        delT.set(random.randrange(50,100,1))
+        apoly.set(random.randrange(6,10,1)/10)
+        apvc.set(random.randrange(40,60,1))
         
     @reactive.Effect
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        dLoad = W()*1000*L()/((d()/1000/2)**2*math.pi*190*10**9)*1000
-        instr = (delta()-dLoad+T1()*6.5*10**-6*L()*1000)/(6.5*10**-6*L()*1000)
+        delpvc = apvc()*10**-6*delT()*L()
+        delpoly = apoly()*10**-6*delT()*L()
+        height = delpvc-delpoly
+        instr = degrees(atan(height/L())) 
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
         else:
-            check = "*Not Correct.*"
+            check = "*Not Correct*"
             correct_indicator = "JG"
 
         # Generate random parts for the encoded attempt.

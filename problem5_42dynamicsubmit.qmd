@@ -1,6 +1,6 @@
 # Problem 5.42 - Statically Indeterminate Axial Loads {.unnumbered}
 
-![Figure 1: Three steel circular rods are placed between two fixed walls.](images/254.png){fig-alt="Picture with three steel circular rods placed between two fixed walls. The first cylinder is of length 1 in, diameter 1 in, and has a force F1 applied at the right end. The second cylinder is of length 2 in, diameter 1.5 in, and has force F2 applied at the right end. The third cylinder is of length 3 in, and diameter 1 in."}
+![Figure 1: Three steel circular rods are placed between two fixed walls.](images/255.png){fig-alt="Picture with three steel circular rods placed between two fixed walls. The first cylinder is of length 1 in, diameter 1 in, and has a force F1 applied at the right end. The second cylinder is of length 2 in, diameter 1.5 in, and has force F2 applied at the right end. The third cylinder is of length 3 in, and diameter 1 in."}
 \[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true

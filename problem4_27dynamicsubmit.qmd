@@ -45,7 +45,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A rigid block is subjected to uniform hydrostatic pressure, σ, on all surfaces. It is noted that the block contracts in the x-direction by {x()} x 10<sup>-3</sup> cm when the pressure is applied. If E = {E()} GPa and ν = {v()}, determine the magnitude of the applied pressure.")]
+        return[ui.markdown(f"A rigid block is subjected to uniform hydrostatic pressure, σ, on all surfaces. It is noted that the block contracts in the x-direction by {x()} x 10<sup>-3</sup> cm when the pressure is applied. If E = {E()} GPa and ν = {v()}, determine the magnitude of the applied pressure. Let L<sub>1</sub> = 5 cm, L<sub>2</sub> = 30 cm, and L<sub>3</sub> = 15 cm.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -81,7 +81,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

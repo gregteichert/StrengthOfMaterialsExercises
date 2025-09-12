@@ -46,7 +46,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A truss is subjected to loads F<sub>1</sub> = {F1()} kips, F<sub>2</sub> = {F2()} kips, and F<sub>3</sub> = {F3()} kips as shown. All members of the truss have the same circular cross-section shown. Determine the magnitude of the normal stress in member DF.")]
+        return[ui.markdown(f"A truss is subjected to loads F<sub>1</sub> = {F1()} kips, F<sub>2</sub> = {F2()} kips, and F<sub>3</sub> = {F3()} kips as shown. All members of the truss have the same circular cross-section shown. Determine the magnitude of the normal stress in member DF. Let L<sub>1</sub> = 2 ft and L<sub>2</sub> = 3 ft.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

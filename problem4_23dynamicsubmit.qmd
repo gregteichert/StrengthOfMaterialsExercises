@@ -29,7 +29,6 @@ Fy=reactive.Value("__")
 E=29000
 v=0.29
 
-
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
@@ -42,7 +41,6 @@ app_ui = ui.page_fluid(
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
-
 
 def server(input, output, session):
     # Initialize a counter for attempts

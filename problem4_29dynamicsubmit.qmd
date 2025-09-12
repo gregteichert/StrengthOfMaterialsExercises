@@ -46,7 +46,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A rectangular block is pulled in two directions. Determine the total change in volume. Assume force F<sub>x</sub> = {Fx()} kips, force F<sub>y</sub> = {Fy()} kips, E = {E()} x 10<sup>6</sup> psi, and ν = {v()}.")]
+        return[ui.markdown(f"A rectangular block is pulled in two directions. Determine the total change in volume. Assume force F<sub>x</sub> = {Fx()} kips, force F<sub>y</sub> = {Fy()} kips, E = {E()} x 10<sup>6</sup> psi, and ν = {v()}. Let L<sub>1</sub> = 3 cm, L<sub>2</sub> = 10 cm, and the width of the block be 1 cm.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
