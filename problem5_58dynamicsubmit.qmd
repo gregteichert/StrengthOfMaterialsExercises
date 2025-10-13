@@ -25,6 +25,7 @@ ri=reactive.Value("__")
 t=reactive.Value("__")
 T1=reactive.Value("__")
 T2=reactive.Value("__")
+L=reactive.Value("__")
   
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
@@ -46,7 +47,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A long steel pipe, with an internal radius r<sub>i</sub> = {ri()} mm and wall thickness t = {t()} mm, is mounted between two fixed walls. Fluid flowing through the pipe raises the temperature from T<sub>1</sub> = {T1()}°C to T<sub>2</sub> = {T2()}°C. Determine the force on the support due to this heating. Assume E = 20 GPa and α = 12 x 10<sup>-6</sup> /°C.")]
+        return[ui.markdown(f"A long steel pipe of length L = {L()} m, with an internal radius r<sub>i</sub> = {ri()} mm and wall thickness t = {t()} mm, is mounted between two fixed walls. Fluid flowing through the pipe raises the temperature from T<sub>1</sub> = {T1()}°C to T<sub>2</sub> = {T2()}°C. Determine the force on the support due to this heating. Assume E = 20 GPa and α = 12 x 10<sup>-6</sup> /°C.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -56,6 +57,7 @@ def server(input, output, session):
         t.set(random.randrange(10,20,1))
         T1.set(random.randrange(20,50,1))
         T2.set(random.randrange(150,250,1))
+        L.set(random.randrange(1,5,0.1))
         
     @reactive.Effect
     @reactive.event(input.submit)

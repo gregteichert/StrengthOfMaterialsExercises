@@ -3790,7 +3790,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A cylindrical pressure vessel is welded together at angle Θ = {theta()}° as shown. Determine the normal stress on the welded seam if the internal pressure P = {P()} MPa.")]
+        return[ui.markdown(f"A cylindrical pressure vessel with an inner radius of 1 m and a thickness of 10 mm is welded together at angle Θ = {theta()}° as shown. Determine the normal stress on the welded seam if the internal pressure P = {P()} MPa.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)
@@ -3826,7 +3826,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

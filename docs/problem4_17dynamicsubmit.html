@@ -3780,7 +3780,7 @@ app_ui = ui.page_fluid(
     ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer", placeholder="Please enter your answer"),
+    ui.input_text("answer","Your Answer in units of radians", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
     ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -3792,7 +3792,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"Force F&lt;sub&gt;1&lt;/sub&gt; = {F1()} lb and F&lt;sub&gt;2&lt;/sub&gt; = {F2()} lb are aoolied to a rubber block of length L = {L()} in. as shown. The depth of the block is {d()} in. Determine the shear strain in the block, assuming ν = 0.49 and E = 500 psi.")]
+        return[ui.markdown(f"Force F&lt;sub&gt;1&lt;/sub&gt; = {F1()} lb and F&lt;sub&gt;2&lt;/sub&gt; = {F2()} lb are applied to a rubber block of length L = {L()} in. as shown. The depth of the block is {d()} in. Determine the shear strain in the block, assuming ν = 0.49 and E = 500 psi.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

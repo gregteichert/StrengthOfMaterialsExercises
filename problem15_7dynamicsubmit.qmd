@@ -51,7 +51,7 @@ def server(input, output, session):
     @reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(input.ID())
-        L.set(random.randrange(10,50,1)/10)
+        L.set(random.randrange(50,100,1)/10)
         ri.set(random.randrange(30,80,1))
         ro.set(ri()+random.randrange(5,15,1))
         
@@ -62,7 +62,7 @@ def server(input, output, session):
         I = math.pi*((ro()/1000)**4-(ri()/1000)**4)/4
         Pcr = math.pi**2*190*10**9*I/(L()**2)
         FCA = Pcr/math.cos(30*math.pi/180)
-        instr = FCA*math.sin(30*math.pi/180)
+        instr = FCA*math.sin(30*math.pi/180)/1000
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"

@@ -46,7 +46,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A beam is held in place by a rope that loops over a pulley as shown. If load F = {F()} kN and angle Θ = {theta()}°, determine the average normal stress in the rope if it has diameter d = {d()} mm.")]
+        return[ui.markdown(f"A beam is held in place by a rope that loops over a pulley as shown. If load F = {F()} kN, length L = 1 m, and angle Θ = {theta()}°, determine the average normal stress in the rope if it has diameter d = {d()} mm.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

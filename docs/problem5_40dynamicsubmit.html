@@ -3809,8 +3809,8 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        Fa = 12*L2()/((d2()/2000)**2*math.pi)/(L1()/((d1()/2000)**2*math.pi)+L2()/((d2()/2000)**2*math.pi))
-        Fb = 12-Fa
+        Fa = F()*L2()/((d2()/2000)**2*math.pi)/(L1()/((d1()/2000)**2*math.pi)+L2()/((d2()/2000)**2*math.pi))
+        Fb = F()-Fa
         sigmaA = Fa/((d1()/2000)**2*math.pi)/1000
         sigmaB = Fb/((d2()/2000)**2*math.pi)/1000
         instr = max(sigmaA,sigmaB)

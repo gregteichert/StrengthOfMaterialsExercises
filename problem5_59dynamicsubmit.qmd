@@ -1,6 +1,6 @@
 # Problem 5.59 - Thermal Deformation {.unnumbered}
 
-![Figure 1: An aluminum cylinder, fixed between two walls, is heated.](images/229.png){fig-alt="Picture of an aluminum cylinder fixed between two walls being heated. The cylinder is length L and diameter d."}
+![Figure 1: An aluminum cylinder, fixed between two walls, is heated.](images/230.png){fig-alt="Picture of an aluminum cylinder fixed between two walls being heated. The cylinder is length L and diameter d."}
 \[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true

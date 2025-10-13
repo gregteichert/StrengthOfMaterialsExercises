@@ -3791,7 +3791,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A cable supports a beam with a uniform distributed load w = {w()} kN/m as shown. The cable has diameter d = {d()} mm and the beam length L = {L()} m. Determine the average normal stress in the cable.")]
+        return[ui.markdown(f"A cable supports a beam with a uniform distributed load w = {w()} kN/m as shown. The cable has diameter d = {d()} mm and the beam length L = {L()} m. Dimension h = 1 m. Determine the average normal stress in the cable.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

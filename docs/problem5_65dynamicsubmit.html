@@ -3807,7 +3807,7 @@ def server(input, output, session):
     @reactive.event(input.submit)
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
-        dTherm = 12*10**-6*L()*delT()
+        dTherm = 12*10**-6*2*L()*delT()
         FLR = dTherm/(L()/(200*10**9*w()*w()*10**-6))*10**-3
         instr = (FLR+F())/2
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):

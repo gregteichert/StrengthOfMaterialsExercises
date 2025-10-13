@@ -54,7 +54,7 @@ def server(input, output, session):
     def randomize_vars():
         random.seed(input.ID())
         ri.set(random.randrange(30,150,5)/100)
-        ro.set(ri()+random.randrange(10,30,5)/100)
+        ro.set(round(ri() + random.randrange(10,30,5)/100,2))
         a.set(random.randrange(10,30,1)/10)
         b.set(a()*2.5)
         c.set(a()*2)
@@ -93,7 +93,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}. For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
         m = ui.modal(
             feedback,
             title="Feedback",

@@ -3792,7 +3792,7 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
-        return[ui.markdown(f"A solid cylinder of radius r = {r()} mm and lengths L = 5 cm is rigidly attached to a hollow cylinder of inner radius r&lt;sub&gt;i&lt;/sub&gt; = {ri()} mm and outer radius r&lt;sub&gt;o&lt;/sub&gt; = {ro()} mm to form a compact torsional spring. A torque T = {T()} N-m is applied at the free end. Determine the total rotation at the free end. Assume E = 200 GPa and ν = 0.29.")]
+        return[ui.markdown(f"A solid cylinder of radius r = {r()} mm and length L = 5 cm is rigidly attached to a hollow cylinder of inner radius r&lt;sub&gt;i&lt;/sub&gt; = {ri()} mm and outer radius r&lt;sub&gt;o&lt;/sub&gt; = {ro()} mm to form a compact torsional spring. A torque T = {T()} N-m is applied at the free end. Determine the total rotation at the free end. Assume E = 200 GPa and ν = 0.29.")]
     
     @reactive.Effect
     @reactive.event(input.generate_problem)

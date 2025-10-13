@@ -65,7 +65,7 @@ def server(input, output, session):
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         dz=d()*math.cos(theta()*math.pi/180)
         dy=d()*math.sin(theta()*math.pi/180)
-        Mz=F()*1000*dz
+        Mz=-F()*1000*dz
         My=F()*1000*dy
         I=a()**4/12
         instr= -F()*1000/(a()**2)+My*-a()/2/I-Mz*-a()/2/I
