@@ -1,6 +1,6 @@
 # Problem 1.1 - Equilibrium in 2D {.unnumbered}
 
-![Figure 1: TEST A simply supported beam is subjected  to a loading.](images/641.png){fig-alt="Picture with a simply supported beam subjected to a loading. The beam of of length 14 ft with a pin at the left end and a roller at the right end. A uniform distributed load, W, is applied downwards from 3 ft to 7 ft from the left end. A point load, P, is applied downwards a distance of 12 ft from the left end."}
+![Figure 1: A simply supported beam is subjected  to a loading.](images/641.png){fig-alt="Picture with a simply supported beam subjected to a loading. The beam of of length 14 ft with a pin at the left end and a roller at the right end. A uniform distributed load, W, is applied downwards from 3 ft to 7 ft from the left end. A point load, P, is applied downwards a distance of 12 ft from the left end."}
 \[Problem adapted from © Chris Galitz CC BY NC-SA 4.0\]
 ```{shinylive-python}
 #| standalone: true
@@ -46,7 +46,7 @@ def server(input, output, session):
     def ui_problem_statement():
         return [
             ui.markdown(
-                f"The simply-supported beam is subjected to the loading shown. Determine the support reactions at A and B given P = {P()} kips and w = {w()} kip/ft."
+                f"TEST The simply-supported beam is subjected to the loading shown. Determine the support reactions at A and B given P = {P()} kips and w = {w()} kip/ft."
             )
         ]
 
