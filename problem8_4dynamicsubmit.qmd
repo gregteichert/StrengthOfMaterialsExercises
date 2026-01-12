@@ -55,7 +55,7 @@ def server(input, output, session):
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
-        random.seed(input.ID())
+        random.seed(input.ID()+100)
         w.set(random.randrange(20,50,1))
         F1.set(random.randrange(10,30,1))
         F2.set(random.randrange(10,30,1))
@@ -103,7 +103,7 @@ def server(input, output, session):
         session.encoded_attempt = reactive.Value(encoded_attempt)
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
-        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}. For reference in debugging this, the calculated instructor answers are {instr1} and {instr2}")
+        feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}.")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 

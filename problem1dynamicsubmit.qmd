@@ -46,7 +46,7 @@ def server(input, output, session):
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
-        random.seed(input.ID())
+        random.seed(input.ID()+100)
         light_a.set(round(65+65*(.5-random.random())*.2))
         lights_bc.set(round(50+50*(.5-random.random())*.2))
 
@@ -65,7 +65,7 @@ def server(input, output, session):
         else:
            extra_check=""
         #extra_check = "An extra check says you may have a sign error." if math.isclose(abs(input.answer()),abs(instr,rel_tol=0.001)) else ""
-        feedback=ui.markdown(f"Your answer of {input.answer()} is {check} {extra_check} For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback=ui.markdown(f"Your answer of {input.answer()} is {check} {extra_check}")
         attempts.append(f"{datetime.now()}, {input.submit()},{input.answer()},{check}\n")
         m=ui.modal(
           feedback,

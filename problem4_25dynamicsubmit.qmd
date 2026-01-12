@@ -55,7 +55,7 @@ def server(input, output, session):
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
-        random.seed(input.ID())
+        random.seed(input.ID()+100)
         Px.set(random.randrange(1, 20, 1))
         Py.set(random.randrange(1, 20, 1))
         Pz.set(random.randrange(1, 20, 1))

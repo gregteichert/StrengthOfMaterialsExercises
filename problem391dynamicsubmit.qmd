@@ -50,7 +50,7 @@ def server(input, output, session):
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
-        random.seed(input.ID())
+        random.seed(input.ID()+100)
         L.set(round(8+8*.5*(.5-random.random())))
         w.set(round(2+2*.5*(.5-random.random())))
         P.set(round(10+10*.5*(.5-random.random())))
@@ -66,7 +66,7 @@ def server(input, output, session):
         else:
            check="*Not Correct.*"
         
-        feedback=ui.markdown(f"Your answer of {input.answer()} is {check}.  For reference in debugging this, the calculated instructor answer is {instr}")
+        feedback=ui.markdown(f"Your answer of {input.answer()} is {check}. ")
         attempts.append(f"{datetime.now()}, {input.submit()},{input.answer()},{check}\n")
         m=ui.modal(
           feedback,
