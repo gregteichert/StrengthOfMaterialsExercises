@@ -3773,14 +3773,14 @@ E=reactive.Value("__")
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
-    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
-    ui.input_text("ID","", placeholder="Enter ID Number Here"),
-    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    #ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    #ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    #ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
     ui.input_text("answer","Your Answer in numbers of boards", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
-    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+    #ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
 def server(input, output, session):
@@ -3790,12 +3790,13 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
+        randomize_vars()
         return[ui.markdown(f"A volcano has erupted and you need to cross a span of L = {L()} ft with lava only δ = {delta()} in. below. You have a stack of 2x4's (actual dimensions 3.5 in. by 1.5 in.). If the boards are placed flat, determine the minimum number of boards you need to to stack to prevent contact with the lava as you cross. Assume you weigh W = {W()} lb, E = {E()} ksi, and you may neglect the weight of the boards. [Hint: The maximum deflection will occur when you are standing at the center of the span].")]
     
-    @reactive.Effect
-    @reactive.event(input.generate_problem)
+    #@reactive.Effect
+    #@reactive.event(input.generate_problem)
     def randomize_vars():
-        random.seed(int(input.ID())+100)
+        random.seed(101)
         L.set(random.randrange(20,40,1))
         delta.set(random.randrange(30,80,1)/10)
         W.set(random.randrange(140,225,1))
@@ -3819,10 +3820,10 @@ def server(input, output, session):
         random_start = generate_random_letters(4)
         random_middle = generate_random_letters(4)
         random_end = generate_random_letters(4)
-        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+        #encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
 
         # Store the most recent encoded attempt in a reactive value so it persists across submissions
-        session.encoded_attempt = reactive.Value(encoded_attempt)
+        #session.encoded_attempt = reactive.Value(encoded_attempt)
 
         # Append the attempt data to the attempts list without the encoded attempt
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
@@ -3836,7 +3837,7 @@ def server(input, output, session):
         )
         ui.modal_show(m)
 
-    @render.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    #@render.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
     async def download():
         # Start the CSV with the encoded attempt (without label)
         final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"

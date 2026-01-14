@@ -12,7 +12,7 @@ If you have any questions or issues while using this system, you are encouraged 
 
 ## Copyright Information
 
-Note: This version of the problem set is being slightly modified by Greg Teichert so that the correct answer is not given to the student (at least, not for all problems), and the problem ID will also produce different problem inputs compared to the original problem set.
+Note: This version of the problem set is being slightly modified by Greg Teichert so that the correct answer is not given to the student and the problem interface is simplified, removing the ID input (a fixed value is used) and option to download, and addition to corrections to problems.
 
 **©2024. James Lord and Jacob Grohs, eds.**, Problem Set for Strength of Materials is licensed under a Creative Commons Attribution NonCommercial ShareAlike 4.0 International License, except where otherwise noted. 
 

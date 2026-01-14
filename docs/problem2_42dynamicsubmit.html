@@ -3775,7 +3775,7 @@ app_ui = ui.page_fluid(
     ui.markdown(
         "**Please enter your ID number from your instructor and click to generate your problem**"
     ),
-    ui.input_text("ID", "", placeholder="Enter ID Number Here"),
+    #ui.input_text("ID", "", placeholder="Enter ID Number Here"),
     ui.input_action_button(
         "generate_problem", "Generate Problem", class_="btn-primary"
     ),
@@ -3785,7 +3785,7 @@ app_ui = ui.page_fluid(
         "answer", "Your Answer in units of MPa", placeholder="Please enter your answer"
     ),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
-    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+    #ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
 def server(input, output, session):
@@ -3795,16 +3795,17 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
+        randomize_vars()
         return [
             ui.markdown(
                 f"A hanger is mounted to a wall with a rectangular bar as shown. Let dimension a = {a()} mm and b = {b()} mm. Determine the largest stress in either the hanger or the bar holding it to the wall. Assume load F = {F()} kN. Consider the normal stress in both components, the shear stress in both components, and the bearing stress between the components."
             )
         ]
 
-    @reactive.Effect
-    @reactive.event(input.generate_problem)
+    #@reactive.Effect
+    #@reactive.event(input.generate_problem)
     def randomize_vars():
-        random.seed(int(input.ID())+100)
+        random.seed(101)
         a.set(random.randrange(100,300,2)/10)
         b.set(round(a()*1.2,1))
         F.set(random.randrange(10,70,1))
@@ -3832,10 +3833,10 @@ def server(input, output, session):
         random_start = generate_random_letters(4)
         random_middle = generate_random_letters(4)
         random_end = generate_random_letters(4)
-        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+        #encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
 
         # Store the most recent encoded attempt in a reactive value so it persists across submissions
-        session.encoded_attempt = reactive.Value(encoded_attempt)
+        #session.encoded_attempt = reactive.Value(encoded_attempt)
 
         # Append the attempt data to the attempts list without the encoded attempt
         attempts.append(
@@ -3849,7 +3850,7 @@ def server(input, output, session):
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 
-    @render.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    #@render.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
     async def download():
         # Start the CSV with the encoded attempt (without label)
         final_encoded = (

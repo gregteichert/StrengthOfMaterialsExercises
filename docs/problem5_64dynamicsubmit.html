@@ -3773,14 +3773,14 @@ d=reactive.Value("__")
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
-    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
-    ui.input_text("ID","", placeholder="Enter ID Number Here"),
-    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    #ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    #ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    #ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
     ui.input_text("answer","Your Answer in units of MPa", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
-    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+    #ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
 def server(input, output, session):
@@ -3790,12 +3790,13 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
+        randomize_vars()
         return[ui.markdown(f"Two wires of length L&lt;sub&gt;1&lt;/sub&gt; = {L1()} m and L&lt;sub&gt;2&lt;/sub&gt; = {L2()} m are connected together and attached to the ceiling and floor of a room. If the room is cooled by {delT()}°C, dettermine the largest stress in either wire. Assume the diameter d = {d()} mm, α&lt;sub&gt;alum&lt;/sub&gt; = 23 x 10&lt;sup&gt;-6&lt;/sup&gt; /°C, E&lt;sub&gt;alum&lt;/sub&gt; = 70 GPa, α&lt;sub&gt;steel&lt;/sub&gt; = 12 x 10&lt;sup&gt;-6&lt;/sup&gt; /°C, and E&lt;sub&gt;steel&lt;/sub&gt; = 190 GPa.")]
     
-    @reactive.Effect
-    @reactive.event(input.generate_problem)
+    #@reactive.Effect
+    #@reactive.event(input.generate_problem)
     def randomize_vars():
-        random.seed(int(input.ID())+100)
+        random.seed(101)
         L1.set(random.randrange(10,50,1)/10)
         L2.set(L1()*3)
         delT.set(random.randrange(20,50,1))
@@ -3820,10 +3821,10 @@ def server(input, output, session):
         random_start = generate_random_letters(4)
         random_middle = generate_random_letters(4)
         random_end = generate_random_letters(4)
-        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+        #encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
 
         # Store the most recent encoded attempt in a reactive value so it persists across submissions
-        session.encoded_attempt = reactive.Value(encoded_attempt)
+        #session.encoded_attempt = reactive.Value(encoded_attempt)
 
         # Append the attempt data to the attempts list without the encoded attempt
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
@@ -3837,7 +3838,7 @@ def server(input, output, session):
         )
         ui.modal_show(m)
 
-    @render.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    #@render.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
     async def download():
         # Start the CSV with the encoded attempt (without label)
         final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"

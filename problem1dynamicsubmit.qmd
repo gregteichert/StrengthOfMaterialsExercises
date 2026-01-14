@@ -26,14 +26,14 @@ lights_bc=reactive.Value("__")
 attempts=["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
-    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
-    ui.input_text("ID","", placeholder="Enter ID Number Here"),
-    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    #ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    #ui.input_text("ID","", placeholder="Enter ID Number Here"),
+    #ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
     ui.input_text("answer","Your Answer in units of psi", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
-    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+    #ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
 
@@ -41,12 +41,13 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
+        randomize_vars()
         return[ui.markdown(f"A city planner is installing a new traffic light. Light A weighs {light_a()} lb, while lights B and C weigh {lights_bc()} lb each. The post at O has a hollow circular cross-section with an outer diameter of 5 inches and a wall thickness of 0.2 inches. Please calculate the magnitude of the maximum combined stress in the post. You may ignore the weight of the post.")]
     
-    @reactive.Effect
-    @reactive.event(input.generate_problem)
+    #@reactive.Effect
+    #@reactive.event(input.generate_problem)
     def randomize_vars():
-        random.seed(int(input.ID())+100)
+        random.seed(101)
         light_a.set(round(65+65*(.5-random.random())*.2))
         lights_bc.set(round(50+50*(.5-random.random())*.2))
 

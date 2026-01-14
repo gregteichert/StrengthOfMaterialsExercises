@@ -3746,7 +3746,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><img src="images/642.png" class="img-fluid" alt="Picture with a simply supported beam being subjected to a loading. The beam is pinned at the left side and has a roller at the right end. The beam is of length 33 ft. There is a uniform distributed load over the first 21 ft of the beam of depth d and weight w. There is a triangular distributed load from 12 ft to 21 ft from the left end of the beam of height 2d and weight w. There is also a uniform distributed load from 21 ft to 33 ft from the left end of depth d and weight w."> [Problem adapted from © Chris Galitz CC BY NC-SA 4.0]</p>
+<p><img src="images/643.png" class="img-fluid" alt="Picture with a simply supported beam being subjected to a loading. The beam is pinned at the left side and has a roller at the right end. The beam is of length 33 ft. There is a uniform distributed load over the first 21 ft of the beam of depth d and weight w. There is a triangular distributed load from 12 ft to 21 ft from the left end of the beam of height 2d and weight w. There is also a uniform distributed load from 21 ft to 33 ft from the left end of depth d and weight w."> [Problem adapted from © Chris Galitz CC BY NC-SA 4.0]</p>
 <pre class="shinylive-python" data-engine="python"><code>#| standalone: true
 #| viewerHeight: 600
 #| components: [viewer]
@@ -3770,15 +3770,15 @@ w = reactive.Value("__")
 attempts = ["Timestamp,Attempt,Answer1,Answer2,Feedback\n"]
 
 app_ui = ui.page_fluid(
-    ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
-    ui.input_text("ID", "", placeholder="Enter ID Number Here"),
-    ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
+    #ui.markdown("**Please enter your ID number from your instructor and click to generate your problem**"),
+    #ui.input_text("ID", "", placeholder="Enter ID Number Here"),
+    #ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
     ui.input_text("answer1", "Your Answer 1 in units of kip", placeholder="Please enter your answer 1"),
     ui.input_text("answer2", "Your Answer 2 in units of kip", placeholder="Please enter your answer 2"),
     ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
-    ui.download_button("download", "Download File to Submit", class_="btn-success"),
+    #ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
 def server(input, output, session):
@@ -3788,16 +3788,17 @@ def server(input, output, session):
     @output
     @render.ui
     def ui_problem_statement():
+        randomize_vars()
         return [
             ui.markdown(
                 f"The simply-supported roof beam AB is subjected to snow loads as a uniform load with snow depth d = {d()} in. A mechanical room on the roof is also covered by snow, and transmits half of the the snow load between points B and C to the roof at point B and the other half at point C. Additionally, there is a snow drift as shown with maximum height, 3*d, above the roof. If the distributed weight of snow is W = {w()} lb/ft per inch of thickness, determine the reactions at supports A and B."
             )
         ]
 
-    @reactive.Effect
-    @reactive.event(input.generate_problem)
+    #@reactive.Effect
+    #@reactive.event(input.generate_problem)
     def randomize_vars():
-        random.seed(int(input.ID())+100)
+        random.seed(101)
         d.set(random.randrange(10,30,1))
         w.set(random.randrange(40,80,1))
         
@@ -3832,16 +3833,16 @@ def server(input, output, session):
         random_start = generate_random_letters(4)
         random_middle = generate_random_letters(4)
         random_end = generate_random_letters(4)
-        encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
+        #encoded_attempt = f"{random_start}{problem_ID}-{random_middle}{attempt_counter()}{correct_indicator}-{random_end}{input.ID()}"
 
-        session.encoded_attempt = reactive.Value(encoded_attempt)
+        #session.encoded_attempt = reactive.Value(encoded_attempt)
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer1()}, {input.answer2()}, {check}\n")
 
         feedback = ui.markdown(f"Your answers of {input.answer1()} and {input.answer2()} are {check}.")
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 
-    @render.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    #@render.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
     async def download():
         final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"
         yield f"{final_encoded}\n\n"
