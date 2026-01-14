@@ -3799,7 +3799,7 @@ def server(input, output, session):
     @reactive.Effect
     @reactive.event(input.generate_problem)
     def randomize_vars():
-        random.seed(input.ID()+100)
+        random.seed(int(input.ID())+100)
         w0.set(random.randrange(50,100,1))
         a.set(random.randrange(80,120,1))
         b.set(a()+random.randrange(50,100,1))
@@ -3842,7 +3842,7 @@ def server(input, output, session):
         m = ui.modal(feedback, title="Feedback", easy_close=True)
         ui.modal_show(m)
 
-    @session.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
+    @render.download(filename=lambda: f"Problem_Log-{problem_ID}-{input.ID()}.csv")
     async def download():
         final_encoded = session.encoded_attempt() if session.encoded_attempt is not None else "No attempts"
         yield f"{final_encoded}\n\n"

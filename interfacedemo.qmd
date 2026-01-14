@@ -1311,7 +1311,7 @@ def server(input, output, session):
         ui.modal_show(m)
         
         
-    @session.download(
+    @render.download(
     filename=lambda: f"Problem_Log.csv"
     )
     async def download():
