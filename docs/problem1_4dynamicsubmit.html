@@ -467,7 +467,7 @@ def server(input, output, session):
         instr3 = w()*(x1()-3)*(3+(x1()-3)/2)+instr2*x1()
         instr4=0
         instr5= Ay-w()*4
-        instr6= w()*4*5-instr5*x2()
+        instr6= w()*4*5+instr5*x2()
 
         correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.01)
         correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.01)
