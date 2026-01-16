@@ -472,9 +472,9 @@ def server(input, output, session):
         correct1 = math.isclose(float(input.answer1()), instr1, rel_tol=0.01)
         correct2 = math.isclose(float(input.answer2()), instr2, rel_tol=0.01)
         correct3 = math.isclose(float(input.answer3()), instr3, rel_tol=0.01)
-        correct4 = math.isclose(float(input.answer3()), instr4, rel_tol=0.01)
-        correct5 = math.isclose(float(input.answer3()), instr5, rel_tol=0.01)
-        correct6 = math.isclose(float(input.answer3()), instr6, rel_tol=0.01)
+        correct4 = math.isclose(float(input.answer4()), instr4, rel_tol=0.01)
+        correct5 = math.isclose(float(input.answer5()), instr5, rel_tol=0.01)
+        correct6 = math.isclose(float(input.answer6()), instr6, rel_tol=0.01)
 
         if correct1 and correct2 and correct3 and correct4 and correct5 and correct6:
             check = "All answers are correct."
