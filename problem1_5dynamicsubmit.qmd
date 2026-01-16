@@ -51,7 +51,7 @@ def server(input, output, session):
         randomize_vars()
         return [
             ui.markdown(
-                f"The simply-supported beam is subjected to the loading shown. Determine the internal normal force, N, shear force, V, and bending moment, M, at x<sub>2 = {x()} m (ignore the cut at x<sub>1 for this problem). Assume forces F<sub>1</sub> = {F1()} kN, F<sub>2</sub> = {F2()} kN, and F<sub>3</sub> = {F3()} kN. Use appropriate signs in your answers."
+                f"The simply-supported beam is subjected to the loading shown. Determine the internal normal force, N, shear force, V, and bending moment, M, at x<sub>2</sub> = {x()} m (ignore the cut at x<sub>1</sub> for this problem). Assume forces F<sub>1</sub> = {F1()} kN, F<sub>2</sub> = {F2()} kN, and F<sub>3</sub> = {F3()} kN. Use appropriate signs in your answers."
             )
         ]
 
