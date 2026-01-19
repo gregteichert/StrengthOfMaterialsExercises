@@ -49,7 +49,7 @@ ui.row(
             class_="d-flex justify-content-center align-items-center"
         ))
     ),  
-    ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
+    ui.input_action_button("submit", "Check Answers", class_="btn-primary"),
     #ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 

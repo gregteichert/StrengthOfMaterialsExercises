@@ -34,7 +34,7 @@ app_ui = ui.page_fluid(
     ui.output_ui("ui_problem_statement"),
     ui.input_text("answer1", "Your internal shear force answer in units of kip", placeholder="Please enter your answer 1"),
     ui.input_text("answer2", "Your moment answer in units of kip-ft", placeholder="Please enter your answer 2"),
-    ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
+    ui.input_action_button("submit", "Check Answers", class_="btn-primary"),
     #ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 

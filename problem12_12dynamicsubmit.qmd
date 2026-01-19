@@ -35,7 +35,7 @@ app_ui = ui.page_fluid(
     ui.output_ui("ui_problem_statement"),
     ui.input_text("answer1", "Your maximum principal stress in units of MPa", placeholder="Please enter your max principal stress"),
     ui.input_text("answer2", "Your angle in units of degrees", placeholder="Please enter your angle"),
-    ui.input_action_button("submit", "Submit Answers", class_="btn-primary"),
+    ui.input_action_button("submit", "Check Answers", class_="btn-primary"),
     #ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 

@@ -35,47 +35,47 @@ book:
         - problem1_8dynamicsubmit.qmd
         - problem1_9dynamicsubmit.qmd
     
-    # - part: "Chapter 2 Problems"
-    #   chapters:
-    #     - problem2_1dynamicsubmit.qmd
-    #     - problem2_2dynamicsubmit.qmd
-    #     - problem2_3dynamicsubmit.qmd
-    #     - problem2_4dynamicsubmit.qmd
-    #     - problem2_5dynamicsubmit.qmd
-    #     - problem2_6dynamicsubmit.qmd
-    #     - problem2_7dynamicsubmit.qmd
-    #     - problem2_8dynamicsubmit.qmd
-    #     - problem2_9dynamicsubmit.qmd
-    #     - problem2_10dynamicsubmit.qmd
-    #     - problem2_11dynamicsubmit.qmd
-    #     - problem2_12dynamicsubmit.qmd
-    #     - problem2_13dynamicsubmit.qmd
-    #     - problem2_14dynamicsubmit.qmd
-    #     - problem2_15dynamicsubmit.qmd
-    #     - problem2_16dynamicsubmit.qmd
-    #     - problem2_17dynamicsubmit.qmd
-    #     - problem2_21dynamicsubmit.qmd
-    #     - problem2_22dynamicsubmit.qmd
-    #     - problem2_23dynamicsubmit.qmd
-    #     - problem2_24dynamicsubmit.qmd
-    #     - problem2_25dynamicsubmit.qmd
-    #     - problem2_26dynamicsubmit.qmd
-    #     - problem2_27dynamicsubmit.qmd
-    #     - problem2_28dynamicsubmit.qmd
-    #     - problem2_29dynamicsubmit.qmd
-    #     - problem2_30dynamicsubmit.qmd
-    #     - problem2_31dynamicsubmit.qmd
-    #     - problem2_32dynamicsubmit.qmd
-    #     - problem2_33dynamicsubmit.qmd
-    #     - problem2_38dynamicsubmit.qmd
-    #     - problem2_39dynamicsubmit.qmd
-    #     - problem2_40dynamicsubmit.qmd
-    #     - problem2_41dynamicsubmit.qmd
-    #     - problem2_42dynamicsubmit.qmd
-    #     - problem2_43dynamicsubmit.qmd
-    #     - problem2_47dynamicsubmit.qmd
-    #     - problem2_48dynamicsubmit.qmd
-    # 
+    - part: "Chapter 2 Problems"
+      chapters:
+        - problem2_1dynamicsubmit.qmd
+        - problem2_2dynamicsubmit.qmd
+        - problem2_3dynamicsubmit.qmd
+        - problem2_4dynamicsubmit.qmd
+        - problem2_5dynamicsubmit.qmd
+        - problem2_6dynamicsubmit.qmd
+        - problem2_7dynamicsubmit.qmd
+        - problem2_8dynamicsubmit.qmd
+        - problem2_9dynamicsubmit.qmd
+        - problem2_10dynamicsubmit.qmd
+        - problem2_11dynamicsubmit.qmd
+        - problem2_12dynamicsubmit.qmd
+        - problem2_13dynamicsubmit.qmd
+        - problem2_14dynamicsubmit.qmd
+        - problem2_15dynamicsubmit.qmd
+        - problem2_16dynamicsubmit.qmd
+        - problem2_17dynamicsubmit.qmd
+        - problem2_21dynamicsubmit.qmd
+        - problem2_22dynamicsubmit.qmd
+        - problem2_23dynamicsubmit.qmd
+        - problem2_24dynamicsubmit.qmd
+        - problem2_25dynamicsubmit.qmd
+        - problem2_26dynamicsubmit.qmd
+        - problem2_27dynamicsubmit.qmd
+        - problem2_28dynamicsubmit.qmd
+        - problem2_29dynamicsubmit.qmd
+        - problem2_30dynamicsubmit.qmd
+        - problem2_31dynamicsubmit.qmd
+        - problem2_32dynamicsubmit.qmd
+        - problem2_33dynamicsubmit.qmd
+        - problem2_38dynamicsubmit.qmd
+        - problem2_39dynamicsubmit.qmd
+        - problem2_40dynamicsubmit.qmd
+        - problem2_41dynamicsubmit.qmd
+        - problem2_42dynamicsubmit.qmd
+        - problem2_43dynamicsubmit.qmd
+        - problem2_47dynamicsubmit.qmd
+        - problem2_48dynamicsubmit.qmd
+
     # - part: "Chapter 3 Problems"
     #   chapters:
     #     - problem3_1dynamicsubmit.qmd

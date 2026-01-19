@@ -32,7 +32,7 @@ app_ui = ui.page_fluid(
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
     ui.input_text("answer","Your Answer in units of kip", placeholder="Please enter your answer"),
-    ui.input_action_button("submit", "Submit Answer", class_="btn-primary"),
+    ui.input_action_button("submit", "Check Answer", class_="btn-primary"),
     #ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
 
