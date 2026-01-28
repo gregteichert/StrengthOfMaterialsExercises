@@ -2655,9 +2655,7 @@ tau_fail = reactive.Value("__")
 attempts = ["Timestamp,Attempt,Answer,Feedback\n"]
 
 app_ui = ui.page_fluid(
-    ui.markdown(
-        "**Please enter your ID number from your instructor and click to generate your problem**"
-    ),
+
     #ui.input_text("ID", "", placeholder="Enter ID Number Here"),
     ui.input_action_button(
         "generate_problem", "Generate Problem", class_="btn-primary"
