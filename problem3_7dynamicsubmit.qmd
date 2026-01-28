@@ -47,7 +47,7 @@ def server(input, output, session):
     @render.ui
     def ui_problem_statement():
         randomize_vars()
-        return[ui.markdown(f"A square plate is deformed due to shear with the new shape shown. If length L = {L()} mm and x = {x()} mm, determine the shear strain at corner A.")]
+        return[ui.markdown(f"A square plate is deformed due to shear with the new shape shown. If length L = {L()} mm and x = {x()} mm, determine the shear strain at the bottom left corner.")]
     
     #@reactive.Effect
     #@reactive.event(input.generate_problem)

@@ -1,7 +1,7 @@
 # Problem 2.48 - Stress on an Inclined Plane {.unnumbered}
 
 
-![Figure 1: A two inch thick board is cut and then glued back together.](images/156.png){fig-alt="Picture with a board that is cut along a line at angel Θ with the vertical. The board is glued back together."}
+![Figure 1: A two inch thick board is cut and then glued back together.](images/156.png){fig-alt="Picture with a board that is cut along a line at angel Θ with the horizontal. The board is glued back together."}
 \[Problem adapted from © Kurt Gramoll CC BY NC-SA 4.0\]
 
 ```{shinylive-python}
@@ -49,7 +49,7 @@ def server(input, output, session):
     @render.ui
     def ui_problem_statement():
         randomize_vars()
-        return[ui.markdown(f"A 2 inch thick board is cut and then glued back together along a line that is Θ = {Θ()} ° off the vertical as shown. If height h = {h()} in. and F = {F()} lb, determine the normal stress along the cut line.")]
+        return[ui.markdown(f"A 2 inch thick board is cut and then glued back together along a line that is Θ = {Θ()} ° off the horizontal as shown. If height h = {h()} in. and F = {F()} lb, determine the normal stress along the cut line.")]
     
     #@reactive.Effect
     #@reactive.event(input.generate_problem)
@@ -57,7 +57,7 @@ def server(input, output, session):
         random.seed(101)
         F.set(random.randrange(2000, 6000, 100))
         h.set(random.randrange(50, 150, 1)/10)
-        Θ.set(random.randrange(10, 20, 1))
+        Θ.set(72)#(random.randrange(10, 20, 1))
         
 
     @reactive.Effect
@@ -65,7 +65,7 @@ def server(input, output, session):
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         
-        instr= (F()/(2*h()))*(math.cos(math.radians(Θ()))**2)
+        instr= (F()/(2*h()))*(math.sin(math.radians(Θ()))**2)
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"

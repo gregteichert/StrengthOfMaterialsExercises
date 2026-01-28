@@ -45,7 +45,7 @@ def server(input, output, session):
     @render.ui
     def ui_problem_statement():
         randomize_vars()
-        return[ui.markdown(f"A rectangular plate of dimensions L = {L()} in. and h = {h()} in. is deformed to the new shape shown. Determine the shear strain at corner C."
+        return[ui.markdown(f"A rectangular plate of dimensions L = {L()} in. and h = {h()} in. is deformed to the new shape shown. Determine the shear strain at corner A."
             )
         ]
 
@@ -53,8 +53,8 @@ def server(input, output, session):
     #@reactive.event(input.generate_problem)
     def randomize_vars():
         random.seed(101)
-        h.set(random.randrange(50,100,1)/10)
-        L.set(h()+random.randrange(50,100,1)/10)
+        h.set(7.2)#(random.randrange(50,100,1)/10)
+        L.set(14.1)#(h()+random.randrange(50,100,1)/10)
 
     @reactive.Effect
     @reactive.event(input.submit)
@@ -64,9 +64,9 @@ def server(input, output, session):
         )  # Increment the attempt counter on each submission.
 
         # Calculate the instructor's answer and determine if the user's answer is correct.
-        alpha2 = math.atan(0.227/(L()-0.071+0.084))
-        alpha3 = math.atan(0.206/(h()+0.32-0.37))
-        instr = alpha2-alpha3
+        alpha2 = 0.071/(h() + 0.0073)
+        alpha3 = 0.37/(L() + 0.29)
+        instr = alpha2 + alpha3
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
