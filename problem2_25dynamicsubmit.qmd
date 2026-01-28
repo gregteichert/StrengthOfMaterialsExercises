@@ -31,9 +31,7 @@ attempts = ["Timestamp,Attempt,Answer,Feedback\n"]
 app_ui = ui.page_fluid(
 
     #ui.input_text("ID", "", placeholder="Enter ID Number Here"),
-    ui.input_action_button(
-        "generate_problem", "Generate Problem", class_="btn-primary"
-    ),
+
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
     ui.input_text(
