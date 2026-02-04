@@ -110,67 +110,67 @@ book:
         - problem4_30dynamicsubmit.qmd
         - problem4_31dynamicsubmit.qmd
         - problem4_35dynamicsubmit.qmd
-# 
-#     - part: "Chapter 5 Problems"
-#       chapters:
-#         - problem5_1dynamicsubmit.qmd
-#         - problem5_2dynamicsubmit.qmd
-#         - problem5_6dynamicsubmit.qmd
-#         - problem5_7dynamicsubmit.qmd
-#         - problem5_8dynamicsubmit.qmd
-#         - problem5_9dynamicsubmit.qmd
-#         - problem5_10dynamicsubmit.qmd
-#         - problem5_11dynamicsubmit.qmd
-#         - problem5_12dynamicsubmit.qmd
-#         - problem5_13dynamicsubmit.qmd
-#         - problem5_14dynamicsubmit.qmd
-#         - problem5_15dynamicsubmit.qmd
-#         - problem5_16dynamicsubmit.qmd
-#         - problem5_17dynamicsubmit.qmd
-#         - problem5_18dynamicsubmit.qmd
-#         - problem5_19dynamicsubmit.qmd
-#         - problem5_20dynamicsubmit.qmd
-#         - problem5_27dynamicsubmit.qmd
-#         - problem5_28dynamicsubmit.qmd
-#         - problem5_33dynamicsubmit.qmd
-#         - problem5_34dynamicsubmit.qmd
-#         - problem5_35dynamicsubmit.qmd
-#         - problem5_36dynamicsubmit.qmd
-#         - problem5_37dynamicsubmit.qmd
-#         - problem5_38dynamicsubmit.qmd
-#         - problem5_39dynamicsubmit.qmd
-#         - problem5_40dynamicsubmit.qmd
-#         - problem5_41dynamicsubmit.qmd
-#         - problem5_42dynamicsubmit.qmd
-#         - problem5_43dynamicsubmit.qmd
-#         - problem5_44dynamicsubmit.qmd
-#         - problem5_45dynamicsubmit.qmd
-#         - problem5_50dynamicsubmit.qmd
-#         - problem5_51dynamicsubmit.qmd
-#         - problem5_52dynamicsubmit.qmd
-#         - problem5_53dynamicsubmit.qmd
-#         - problem5_54dynamicsubmit.qmd
-#         - problem5_55dynamicsubmit.qmd
-#         - problem5_56dynamicsubmit.qmd
-#         - problem5_57dynamicsubmit.qmd
-#         - problem5_58dynamicsubmit.qmd
-#         - problem5_59dynamicsubmit.qmd
-#         - problem5_60dynamicsubmit.qmd
-#         - problem5_61dynamicsubmit.qmd
-#         - problem5_62dynamicsubmit.qmd
-#         - problem5_63dynamicsubmit.qmd
-#         - problem5_64dynamicsubmit.qmd
-#         - problem5_65dynamicsubmit.qmd
-#         - problem5_66dynamicsubmit.qmd
-#         - problem5_67dynamicsubmit.qmd
-#         - problem5_68dynamicsubmit.qmd
-#         - problem5_69dynamicsubmit.qmd
-#         - problem5_70dynamicsubmit.qmd
-#         - problem5_71dynamicsubmit.qmd
-#         - problem5_72dynamicsubmit.qmd
-#         - problem5_73dynamicsubmit.qmd
-#         - problem5_74dynamicsubmit.qmd
-# 
+
+    - part: "Chapter 5 Problems"
+      chapters:
+        - problem5_1dynamicsubmit.qmd
+        - problem5_2dynamicsubmit.qmd
+        - problem5_6dynamicsubmit.qmd
+        - problem5_7dynamicsubmit.qmd
+        - problem5_8dynamicsubmit.qmd
+        - problem5_9dynamicsubmit.qmd
+        - problem5_10dynamicsubmit.qmd
+        - problem5_11dynamicsubmit.qmd
+        - problem5_12dynamicsubmit.qmd
+        - problem5_13dynamicsubmit.qmd
+        - problem5_14dynamicsubmit.qmd
+        - problem5_15dynamicsubmit.qmd
+        - problem5_16dynamicsubmit.qmd
+        - problem5_17dynamicsubmit.qmd
+        - problem5_18dynamicsubmit.qmd
+        - problem5_19dynamicsubmit.qmd
+        - problem5_20dynamicsubmit.qmd
+        - problem5_27dynamicsubmit.qmd
+        - problem5_28dynamicsubmit.qmd
+        - problem5_33dynamicsubmit.qmd
+        - problem5_34dynamicsubmit.qmd
+        - problem5_35dynamicsubmit.qmd
+        - problem5_36dynamicsubmit.qmd
+        - problem5_37dynamicsubmit.qmd
+        - problem5_38dynamicsubmit.qmd
+        - problem5_39dynamicsubmit.qmd
+        - problem5_40dynamicsubmit.qmd
+        - problem5_41dynamicsubmit.qmd
+        - problem5_42dynamicsubmit.qmd
+        - problem5_43dynamicsubmit.qmd
+        - problem5_44dynamicsubmit.qmd
+        - problem5_45dynamicsubmit.qmd
+        - problem5_50dynamicsubmit.qmd
+        - problem5_51dynamicsubmit.qmd
+        - problem5_52dynamicsubmit.qmd
+        - problem5_53dynamicsubmit.qmd
+        - problem5_54dynamicsubmit.qmd
+        - problem5_55dynamicsubmit.qmd
+        - problem5_56dynamicsubmit.qmd
+        - problem5_57dynamicsubmit.qmd
+        - problem5_58dynamicsubmit.qmd
+        - problem5_59dynamicsubmit.qmd
+        - problem5_60dynamicsubmit.qmd
+        - problem5_61dynamicsubmit.qmd
+        - problem5_62dynamicsubmit.qmd
+        - problem5_63dynamicsubmit.qmd
+        - problem5_64dynamicsubmit.qmd
+        - problem5_65dynamicsubmit.qmd
+        - problem5_66dynamicsubmit.qmd
+        - problem5_67dynamicsubmit.qmd
+        - problem5_68dynamicsubmit.qmd
+        - problem5_69dynamicsubmit.qmd
+        - problem5_70dynamicsubmit.qmd
+        - problem5_71dynamicsubmit.qmd
+        - problem5_72dynamicsubmit.qmd
+        - problem5_73dynamicsubmit.qmd
+        - problem5_74dynamicsubmit.qmd
+
 #     - part: "Chapter 6 Problems"
 #       chapters:
 #         - problem6_1dynamicsubmit.qmd
