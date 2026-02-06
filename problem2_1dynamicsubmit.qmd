@@ -52,7 +52,7 @@ def server(input, output, session):
     @render.ui
     def ui_problem_statement():
         randomize_vars()
-        return[ui.markdown(f"A series of solid circular bars are loaded with three loads as shown, F<sub>1</sub> = {F1()} N, F<sub>2</sub> = {F2()} N, and F<sub>3</sub> = {F3()} N. What is the largest absolute normal stress, 𝜎, in any bar?")]
+        return[ui.markdown(f"A series of solid circular bars are loaded with three loads as shown, F<sub>1</sub> = {F1()} N, F<sub>2</sub> = {F2()} N, and F<sub>3</sub> = {F3()} N. What is the largest absolute normal stress in any bar?")]
      
     #@reactive.Effect
     #@reactive.event(input.generate_problem)
