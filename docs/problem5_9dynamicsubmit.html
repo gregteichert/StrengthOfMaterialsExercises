@@ -2688,8 +2688,8 @@ def server(input, output, session):
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         A = 0.05*t()
         sigmaavg=P()/A
-        instr= sigmaavg*1.59
-        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
+        instr= sigmaavg*1.88
+        if math.isclose(float(input.answer()), instr, rel_tol=0.03):
             check = "*Correct*"
             correct_indicator = "JL"
         else:

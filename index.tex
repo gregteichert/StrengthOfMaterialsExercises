@@ -10165,7 +10165,7 @@ Concentrations}
 \NormalTok{        attempt\_counter.set(attempt\_counter() + 1)  \# Increment the attempt counter on each submission.}
 \NormalTok{        sigma\_norm = P()/(t()*(43{-}22))*1000}
 \NormalTok{        instr= 2.15*(sigma\_norm)}
-\NormalTok{        if math.isclose(float(input.answer()), instr, rel\_tol=0.1):}
+\NormalTok{        if math.isclose(float(input.answer()), instr, rel\_tol=0.03):}
 \NormalTok{            check = "*Correct*"}
 \NormalTok{            correct\_indicator = "JL"}
 \NormalTok{        else:}
@@ -10521,8 +10521,8 @@ Concentrations}
 \NormalTok{        attempt\_counter.set(attempt\_counter() + 1)  \# Increment the attempt counter on each submission.}
 \NormalTok{        A = 0.05*t()}
 \NormalTok{        sigmaavg=P()/A}
-\NormalTok{        instr= sigmaavg*1.59}
-\NormalTok{        if math.isclose(float(input.answer()), instr, rel\_tol=0.01):}
+\NormalTok{        instr= sigmaavg*1.88}
+\NormalTok{        if math.isclose(float(input.answer()), instr, rel\_tol=0.03):}
 \NormalTok{            check = "*Correct*"}
 \NormalTok{            correct\_indicator = "JL"}
 \NormalTok{        else:}

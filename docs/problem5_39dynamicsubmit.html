@@ -2678,7 +2678,7 @@ def server(input, output, session):
     @render.ui
     def ui_problem_statement():
         randomize_vars()
-        return[ui.markdown(f"A concrete post of length L = {L()}  m and diameter d&lt;sub&gt;c&lt;/sub&gt; = {dc()} mm supports a load F = {F()} kN. The concrete is reinforced with 6 steel rods of diameter d&lt;sub&gt;s&lt;/sub&gt; = {ds()} mm. Assume E&lt;sub&gt;concrete&lt;/sub&gt; = 25 GPa and E&lt;sub&gt;steel&lt;/sub&gt; = 200 GPa. Determine the stress in the concrete.")]
+        return[ui.markdown(f"A concrete post of length L = {L()}  m and diameter d&lt;sub&gt;c&lt;/sub&gt; = {dc()} mm supports a load F = {F()} kN. The concrete is reinforced with 6 steel rods of diameter d&lt;sub&gt;s&lt;/sub&gt; = {ds()} mm. Assume E&lt;sub&gt;concrete&lt;/sub&gt; = 25 GPa and E&lt;sub&gt;steel&lt;/sub&gt; = 200 GPa. Determine the stress in the concrete (positive for tensile and negative for compressive).")]
     
     #@reactive.Effect
     #@reactive.event(input.generate_problem)
@@ -2699,7 +2699,7 @@ def server(input, output, session):
         Sside = As*Esteel
         LHS = F()*Cside
         RHS = Cside+Sside
-        instr= ((LHS/RHS)/(Ac/100**2))/10**3
+        instr= -((LHS/RHS)/(Ac/100**2))/10**3
         if math.isclose(float(input.answer()), instr, rel_tol=0.01):
             check = "*Correct*"
             correct_indicator = "JL"
