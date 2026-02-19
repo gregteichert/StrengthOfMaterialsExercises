@@ -12997,7 +12997,7 @@ Axial Loads}
 \NormalTok{    @render.ui}
 \NormalTok{    def ui\_problem\_statement():}
 \NormalTok{        randomize\_vars()}
-\NormalTok{        return[ui.markdown(f"A concrete post of length L = \{L()\}  m and diameter d\textless{}sub\textgreater{}c\textless{}/sub\textgreater{} = \{dc()\} mm supports a load F = \{F()\} kN. The concrete is reinforced with 6 steel rods of diameter d\textless{}sub\textgreater{}s\textless{}/sub\textgreater{} = \{ds()\} mm. Assume E\textless{}sub\textgreater{}concrete\textless{}/sub\textgreater{} = 25 GPa and E\textless{}sub\textgreater{}steel\textless{}/sub\textgreater{} = 200 GPa. Determine the stress in the concrete.")]}
+\NormalTok{        return[ui.markdown(f"A concrete post of length L = \{L()\}  m and diameter d\textless{}sub\textgreater{}c\textless{}/sub\textgreater{} = \{dc()\} mm supports a load F = \{F()\} kN. The concrete is reinforced with 6 steel rods of diameter d\textless{}sub\textgreater{}s\textless{}/sub\textgreater{} = \{ds()\} mm. Assume E\textless{}sub\textgreater{}concrete\textless{}/sub\textgreater{} = 25 GPa and E\textless{}sub\textgreater{}steel\textless{}/sub\textgreater{} = 200 GPa. Determine the stress in the concrete (positive for tensile and negative for compressive).")]}
     
 \NormalTok{    \#@reactive.Effect}
 \NormalTok{    \#@reactive.event(input.generate\_problem)}
@@ -13018,7 +13018,7 @@ Axial Loads}
 \NormalTok{        Sside = As*Esteel}
 \NormalTok{        LHS = F()*Cside}
 \NormalTok{        RHS = Cside+Sside}
-\NormalTok{        instr= ((LHS/RHS)/(Ac/100**2))/10**3}
+\NormalTok{        instr= {-}((LHS/RHS)/(Ac/100**2))/10**3}
 \NormalTok{        if math.isclose(float(input.answer()), instr, rel\_tol=0.01):}
 \NormalTok{            check = "*Correct*"}
 \NormalTok{            correct\_indicator = "JL"}
@@ -20476,7 +20476,7 @@ Torsion}
 \NormalTok{        Gs = 80*10**9}
 \NormalTok{        TS = T/(Jc*Gc)/(1/(Js*Gs)+1/(Jc*Gc))}
 \NormalTok{        TC = T{-}TS}
-\NormalTok{        tauS = TS*b()/1000/Js}
+\NormalTok{        tauS = TS*di()/2000/Js}
 \NormalTok{        tauC = TC*do()/2000/Jc}
 \NormalTok{        instr= max(tauS,tauC)/1000000}
 \NormalTok{        if math.isclose(float(input.answer()), instr, rel\_tol=0.01):}
