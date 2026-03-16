@@ -643,10 +643,10 @@ format:
       light: flatly
       dark: darkly
 
-  pdf:
-    documentclass: scrreprt
-  epub: 
-    cover-image: cover.png
+  # pdf:
+    # documentclass: scrreprt
+  # epub: 
+    # cover-image: cover.png
 
 
 

@@ -59,7 +59,7 @@ def server(input, output, session):
     def _():
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         I = math.pi*(r()/1000)**4/4
-        A = math.pi*(r()/1000)**2
+        A = math.pi*(r()/1000)**2/2
         y = 4*r()/1000/(3*math.pi)
         Qt = y*A
         instr= V()*Qt/(I*2*(r()/1000))
