@@ -35,7 +35,8 @@ app_ui = ui.page_fluid(
     #ui.input_action_button("generate_problem", "Generate Problem", class_="btn-primary"),
     ui.markdown("**Problem Statement**"),
     ui.output_ui("ui_problem_statement"),
-    ui.input_text("answer","Your Answer in units of ksi", placeholder="Please enter your answer"),
+    ui.input_text("answer1","Your Answer for the normal stress in units of ksi", placeholder="Please enter your answer"),
+    ui.input_text("answer2","Your Answer for the shear stress in units of ksi", placeholder="Please enter your answer"),
     ui.input_action_button("submit", "Check Answer", class_="btn-primary"),
     #ui.download_button("download", "Download File to Submit", class_="btn-success"),
 )
@@ -48,7 +49,7 @@ def server(input, output, session):
     @render.ui
     def ui_problem_statement():
         randomize_vars()
-        return[ui.markdown(f"A solid circular rod of length L = {L()} ft and radius r = {r()} in. is subjected to load F = {F()} kips and torsional moment T = {T()} kip-in. Determine the maximum principal stress at point A.")]
+        return[ui.markdown(f"A solid circular rod of length L = {L()} ft and radius r = {r()} in. is subjected to load F = {F()} kips and torsional moment T = {T()} kip-in. Determine the stress state at point A (report absolute values).")]
     
     #@reactive.Effect
     #@reactive.event(input.generate_problem)
@@ -65,13 +66,21 @@ def server(input, output, session):
         attempt_counter.set(attempt_counter() + 1)  # Increment the attempt counter on each submission.
         tau_xy = 2*T()/(math.pi*r()**3)
         sigma_x = F()*L()*48/(math.pi*r()**3)
-        instr= sigma_x/2+math.sqrt((sigma_x/2)**2+tau_xy**2)
-        if math.isclose(float(input.answer()), instr, rel_tol=0.01):
-            check = "*Correct*"
-            correct_indicator = "JL"
+        #instr= sigma_x/2+math.sqrt((sigma_x/2)**2+tau_xy**2)
+		instr1 = sigma_x
+		instr2 = tau_xy
+        if math.isclose(float(input.answer1()), instr1, rel_tol=0.01):
+            check1 = "*Correct*"
+            correct_indicator1 = "JL"
         else:
-            check = "*Not Correct.*"
-            correct_indicator = "JG"
+            check1 = "*Not Correct.*"
+            correct_indicator1 = "JG"
+        if math.isclose(float(input.answer2()), instr2, rel_tol=0.01):
+            check2 = "*Correct*"
+            correct_indicator2 = "JL"
+        else:
+            check2 = "*Not Correct.*"
+            correct_indicator2 = "JG"
 
         # Generate random parts for the encoded attempt.
         random_start = generate_random_letters(4)
@@ -86,7 +95,7 @@ def server(input, output, session):
         attempts.append(f"{datetime.now()}, {attempt_counter()}, {input.answer()}, {check}\n")
 
         # Show feedback to the user.
-        feedback = ui.markdown(f"Your answer of {input.answer()} is {check}.")
+        feedback = ui.markdown(f"Your answer for the nomral stress of {input.answer1()} is {check1}. Your answer for the shear stress of {input.answer2()} is {check2}.")
         m = ui.modal(
             feedback,
             title="Feedback",
